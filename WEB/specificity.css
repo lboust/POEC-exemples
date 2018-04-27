@@ -1,0 +1,21 @@
+#p2 {
+    color : green;
+}
+
+p#p2 {
+    color : pink;
+}
+p {
+    background-color: yellow;
+    border : 1px red solid;
+}
+
+p {
+    color: blue;
+    border: 2px purple dashed;
+}
+
+
+.para {
+    font-style : bold;
+}

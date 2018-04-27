@@ -1,0 +1,202 @@
+html{
+    font-family: 'Merriweather Sans', sans-serif;
+    font-size: 16px;
+    color: black;
+
+} 
+#iPhone-8-RED {
+    background-color: #b00e23;
+    color: white;  
+    padding-top: 100px;
+
+    /*flex box*/
+    display: flex;
+    flex-direction: column; /*main-axis*/
+    align-items: center; /*cross-axis*/
+
+    /*image*/
+    background-image: url(images/hero_large.jpg);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 250px;
+    background-size: 28%;
+    padding-bottom: 400px;
+ 
+}
+
+#iPhone-8-RED h1 {
+    font-size: 3rem;
+    margin: 20px;
+    font-weight: bold;
+}
+#iPhone-8-RED a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2rem;
+    /*flex box
+    display: flex;
+    flex-direction: row;
+    align-items: center; cross-axis*/
+}
+
+#iPhone-8-RED a:hover {
+    color: green;
+    text-decoration: underline;
+}
+
+#iPhone-8-RED-Special-Edition {
+    border: 1px  solid white;
+    border-radius: 5px;
+    /*padding-top: 10px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-left: 20px;*/
+    padding: 8px 15px;
+}
+
+#product {
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+
+}
+
+#red{
+    font-family: 'IBM Plex Sans Condensed', sans-serif;
+    font-size: 1.2rem;
+    vertical-align: top;
+}
+
+.product_hero {
+    /*flex box*/
+    display: flex;
+    flex-direction: column;  /*main-axis*/
+    align-items: center; /*cross-axis*/
+
+    /*image*/
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: 200px;
+    background-size: 60%;
+    padding-bottom: 400px;
+    padding-top: 50px;
+ }
+
+
+.product_hero__title {
+    font-size: 2.5rem;
+    margin: 15px;
+    font-weight: bold;
+}
+.product_hero__tagline {
+    font-size: 1.6rem;
+}
+
+#iPhone-X {
+    background-color: #fafafa;
+    /*image*/
+    background-image: url(images/iphone_x_large.jpg);
+
+}
+
+#iPad {
+    background-color: #f5f5f5;
+        /*image*/
+    background-image: url(images/ipad_large.jpg);
+}
+
+.menu-horiz {
+    
+    font-size: 0.8rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-evenly;
+  
+    color: white;
+    
+    background-repeat: no-repeat;
+    background-position-x: right;
+    
+    
+}
+
+.nav-primary {
+    width: 100%;
+    background-color: black;
+    position: fixed;
+    opacity: 0.8;
+}
+
+.menu-horiz__item {
+    padding: 17px;
+    color: white;
+    text-decoration: none;
+    display: block;
+    transition: color 1s;
+
+}
+
+
+.menu-horiz__item:hover {
+    color: rgb(180, 143, 143);
+}
+
+.product_grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-gap: 15px;
+}
+.product_grid__item {
+    /*image*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-repeat: no-repeat;
+    background-position-x: center;
+    padding-bottom: 300px;
+    padding-top: 50px;
+
+}
+
+.product_grid__item___title {
+    font-size: 2.5rem;
+    margin: 15px;
+    font-weight: bold;
+}
+
+.product_grid_item___tagline {
+    font-size: 1.6rem;
+}
+
+#MacBook {
+    background-image: url(images/macbook_pro_large.jpg);
+    background-color: #FAFAFA;
+    grid-column: 1; grid-row: 1;
+    background-position-y: center;
+    background-size: 80%;
+}
+
+#WATCH {
+    background-image: url(images/watch_series_3_large.jpg);
+    grid-column: 2; grid-row: 1;
+    background-position-y: center;
+    background-size: 55%;
+}
+
+#music {
+    background-image: url(images/music_three_months_large.jpg);
+    grid-column: 1; grid-row: 2;
+    background-position-y: center;
+    background-size: 100%;
+}
+
+#Airpods {
+    background-image: url(images/airpods_large.jpg);
+    grid-column: 2; grid-row: 2;
+    background-position-y: 70%;
+    background-size: 55%;
+
+}
+
+
+

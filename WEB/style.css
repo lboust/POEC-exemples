@@ -1,0 +1,61 @@
+h2 {
+    color:#0e7a7a;
+    border-width: 5px;
+    border-color: white;
+    border-style: double;
+    border-bottom-color: yellow;
+}
+h1 {
+    background-color: rgb(0,128,0);
+
+}
+h3 {
+    border: 4px pink solid ;
+    border-radius: 5px 0px 5px 0px;
+}
+
+h4 {
+    background-color: rgb(228, 133, 133);
+    box-shadow: red 3px 4px 5px ;
+    font-weight: bold;
+}
+
+
+body   {
+    background-image: url("images/paul-earle-39322-unsplash.jpg");
+    /*Photo by Paul Earle on Unsplash*/
+    background-size: 100%;
+    background-repeat: no repeat;
+    background-size: cover;
+    background-position-y: center;
+    font-family: 'Cuprum', sans-serif;
+}
+
+table {
+    background-color: white;
+}
+
+tbody tr {
+    background-color: rgb(245, 245, 109);
+}
+
+tbody tr:first-child {
+    background-color: rgb(100, 100, 200);
+}
+
+tbody tr:last-child {
+    background-color: rgb(150, 150, 200);
+}
+
+tbody tr:nth-child(2n+1) {
+    border: 2px black solid;
+    border-radius : 15px;
+}
+
+#style1 {
+    font-style : oblique;
+}
+
+.titre {
+    color : rgb(201, 225, 245)
+}
