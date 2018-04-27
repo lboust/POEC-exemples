@@ -1,18 +1,22 @@
 package jdbc;
 
+import java.util.List;
+
 public class Video {
 	//instance fields
+	private Integer id; //clé
 	private String title; // titre de la vidéo
 	private String url; // lien youtube
-	private int duration; // durée totale de la vidéo en s
-	private String description; // texte de description
+	private Integer duration; // durée totale de la vidéo en s
 	private String publicationDate; //date et heure de publication
-	private String author; //nom du membre MyTube qui a publié la vidéo
+	private User author; //nom du membre MyTube qui a publié la vidéo
 	private String type; // type de vidéo (recommended ou trending)
-	private long numberOfViews; //nombre de vues de la vidéo
-	private int numberOfComments; //nombre de commentaires d'une vidéo
-	private int id; //clé
+	private Integer numberOfViews; //nombre de vues de la vidéo
+	private Integer numberOfComments; //nombre de commentaires d'une vidéo
 	private String capture; //src de la miniature
+	private List<Comment> comments; // liste des commentaires
+	private String description; // texte de description
+	private Integer user_id; //clé
 	//methods
 	//lit la vidéo à un certain temps
 	public void play(int playingTime) {
@@ -82,7 +86,7 @@ public class Video {
 	public int getDuration() {
 		return duration;
 	}
-	public void setDuration(int duration) {
+	public void setDuration(Integer duration) {
 		this.duration = duration;
 	}
 
@@ -93,10 +97,10 @@ public class Video {
 	public void setPublicationDate(String publicationDate) {
 		this.publicationDate = publicationDate;
 	}
-	public String getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
-	public void setAuthor(String author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
 	public String getType() {
@@ -108,13 +112,13 @@ public class Video {
 	public long getNumberOfViews() {
 		return numberOfViews;
 	}
-	public void setNumberOfViews(long numberOfViews) {
+	public void setNumberOfViews(Integer numberOfViews) {
 		this.numberOfViews = numberOfViews;
 	}
 	public int getNumberOfComments() {
 		return numberOfComments;
 	}
-	public void setNumberOfComments(int numberOfComments) {
+	public void setNumberOfComments(Integer numberOfComments) {
 		this.numberOfComments = numberOfComments;
 	}
 	public int getId() {
@@ -139,6 +143,18 @@ public class Video {
 	public String toString() {
 		return "[id: " + id + ", title: " + title +"]";
 		
+	}
+	public Integer getUser_id() {
+		return user_id;
+	}
+	public void setUser_id(Integer user_id) {
+		this.user_id = user_id;
+	}
+	public List<Comment> getComments() {
+		return comments;
+	}
+	public void setComments(List<Comment> comments) {
+		this.comments = comments;
 	}
 
 }
