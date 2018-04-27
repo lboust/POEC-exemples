@@ -2,6 +2,7 @@ package jdbc;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -36,6 +37,24 @@ public class UserRepository {
 			
 		} catch (SQLException e) {
 			// e.printStackTrace();
+			throw new RuntimeException(e);
+		}
+	}
+	public User findUserById(int id) {
+		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/poec?serverTimezone=UTC", "root", "rootroot")) {
+
+			PreparedStatement pstmt = 
+					conn.prepareStatement("SELECT * FROM user WHERE id = ?");
+			pstmt.setInt(1, id);
+			
+			ResultSet rs = pstmt.executeQuery();
+			if(! rs.next()) { 
+				return null; 
+			}
+			
+			return mapResultSetToUser(rs);
+			
+		} catch (SQLException e) {
 			throw new RuntimeException(e);
 		}
 	}

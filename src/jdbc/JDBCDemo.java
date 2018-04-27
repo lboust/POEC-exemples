@@ -47,7 +47,18 @@ public class JDBCDemo {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		 
+		UserRepository userRepo = new UserRepository();
+		List<User> users = userRepo.findAllUsers();
+		System.out.println(users);
+		System.out.println("ici");
+		User u = userRepo.findUserById(2);
+		
+		User u1 = userRepo.findUserById(1);
+		System.out.println(u1);
+		User u2 = userRepo.findUserById(2);
+		System.out.println(u2);
+		User u3 = userRepo.findUserById(3);
+		System.out.println(u3);
 	}
 
 }
