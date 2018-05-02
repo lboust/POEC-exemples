@@ -7,7 +7,7 @@ import java.util.List;
 
 public class VideoDemo {
 
-	public static Video mapResultSetToVideo(ResultSet rsVideo, ResultSet rsUser, ResultSet rsComment) throws SQLException  {
+	public static Video mapResultSetToVideo(ResultSet rsVideo) throws SQLException  {
 		Video video = new Video();
 		video.setId(rsVideo.getInt("id"));
 		video.setTitle(rsVideo.getString("title"));
@@ -20,7 +20,7 @@ public class VideoDemo {
 		video.setDescription(rsVideo.getString("description"));
 		video.setUser_id(rsVideo.getInt("user_id"));
 
-		User user = new User();
+		/*User user = new User();
 		user.setId(rsUser.getInt("id"));
 		user.setUsername(rsUser.getString("username"));
 		user.setUseremail(rsUser.getString("email"));
@@ -37,7 +37,7 @@ public class VideoDemo {
 
 			commentList.add(comment);
 		}
-		video.setComments(commentList);
+		video.setComments(commentList);*/
 		
 		return video;
 	}

@@ -14,7 +14,7 @@ import java.util.List;
 public class VideoRepository {
 	//method mapResultSetToVideo
 	// construit l'objet Video à partir des colonnes de la base de donnée
-	private Video mapResultSetToVideo(ResultSet rsVideo, ResultSet rsUser, ResultSet rsComment) throws SQLException  {
+	private Video mapResultSetToVideo(ResultSet rsVideo) throws SQLException  {
 		Video video = new Video();
 		video.setId(rsVideo.getInt("id"));
 		video.setTitle(rsVideo.getString("title"));
@@ -27,15 +27,15 @@ public class VideoRepository {
 		video.setDescription(rsVideo.getString("description"));
 		video.setUser_id(rsVideo.getInt("user_id"));
 
-		User user = new User();
+/*		User user = new User();
 		user.setId(rsUser.getInt("id"));
 		user.setUsername(rsUser.getString("username"));
 		user.setUseremail(rsUser.getString("email"));
 		user.setUserpassword(rsUser.getString("password"));
 		
-		video.setAuthor(user);
+		video.setAuthor(user);*/
 		
-		List<Comment> commentList = new ArrayList<>();
+/*		List<Comment> commentList = new ArrayList<>();
 		commentList=video.getComments();
 		
 		Comment comment = new Comment();
@@ -44,7 +44,7 @@ public class VideoRepository {
 
 			commentList.add(comment);
 		}
-		video.setComments(commentList);
+		video.setComments(commentList);*/
 		
 		return video;
 	}
@@ -55,36 +55,12 @@ public class VideoRepository {
 		try (Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/mytube?serverTimezone=UTC", "root", "rootroot")) {
 
 			PreparedStatement pstmtVideo = 
-					conn.prepareStatement("SELECT * FROM video WHERE id = ?");
-			pstmtVideo.setInt(1, id);
+					conn.prepareStatement("SELECT video.id, video.title, video.url, video.duration, video.publicationDate, video.author, video.type, video.numberOfViews, video.numberOfComments, video.capture, video.description, video.user_id, user.id, user.username, user.useremail, user.userpassword FROM video INNER JOIN user ON video.user_id = user.id;");
 			
 			ResultSet rsVideo = pstmtVideo.executeQuery(); // ligne de la table video à l'id demandé
-			if(! rsVideo.next()) { 
-				return null; 
-			}
-			PreparedStatement pstmtUser = 
-					conn.prepareStatement("SELECT * FROM user WHERE id = ?");
-			pstmtUser.setInt(1, rsVideo.getInt("user_id"));
+
 			
-			ResultSet rsUser = pstmtUser.executeQuery(); // ligne de la table user où l'id est égal à l'user_id de la table video
-						
-			 // contruction de la vidéo à partir des attributs video et user
-			if(! rsUser.next()) { 
-				return null; 
-			}
-			
-			PreparedStatement pstmtComment = 
-					conn.prepareStatement("SELECT * FROM commentary WHERE video_id = ?");
-			pstmtComment.setInt(1, id);
-			
-			ResultSet rsComment = pstmtComment.executeQuery(); // ligne de la table user où l'id est égal à l'user_id de la table video
-						
-			 // contruction de la vidéo à partir des attributs video et user
-			if(! rsComment.next()) { 
-				return null; 
-			}
-			
-			return mapResultSetToVideo(rsVideo, rsUser, rsComment);
+			return mapResultSetToVideo(rsVideo);
 			
 		} catch (SQLException e) {
 			throw new RuntimeException(e);
