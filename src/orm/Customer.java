@@ -5,7 +5,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.ForeignKey;
 
 @Entity
 @Table(name="customer")
@@ -14,10 +17,14 @@ public class Customer {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	@Column(name="customer_id")
-	private long id;
+	private Short id;
 	
-	@Column(name="address_id")
-	private long address_id;
+/*	@Column(name="address_id")
+	private long address_id;*/
+	
+	@ManyToOne
+	@JoinColumn(name="address_id", foreignKey=@ForeignKey(name="fk_customer_address"))
+	private Address address;
 	
 	@Column(name="first_name")
 	private String firstName;
@@ -32,10 +39,10 @@ public class Customer {
 	private Long storeId;
 	
 	//getters and setters
-	public long getId() {
+	public Short getId() {
 		return id;
 	}
-	public void setId(long id) {
+	public void setId(Short id) {
 		this.id = id;
 	}
 	public String getFirstName() {
@@ -62,11 +69,17 @@ public class Customer {
 	public void setStoreId(Long storeId) {
 		this.storeId = storeId;
 	}
-	public long getAddress_id() {
+/*	public long getAddress_id() {
 		return address_id;
 	}
 	public void setAddress_id(long address_id) {
 		this.address_id = address_id;
+	}*/
+	public Address getAddress() {
+		return address;
+	}
+	public void setAddress(Address address) {
+		this.address = address;
 	}
 
 
